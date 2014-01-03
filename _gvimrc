@@ -1,0 +1,40 @@
+"---------------------------------------------------------------------------
+" フォント設定:
+"
+if has('win32')
+  " Windows用
+  set guifont=MS_Gothic:h12:cSHIFTJIS
+  "set guifont=MS_Mincho:h12:cSHIFTJIS
+  " 行間隔の設定
+  set linespace=1
+  " 一部のUCS文字の幅を自動計測して決める
+  if has('kaoriya')
+    set ambiwidth=auto
+  endif
+elseif has('gui_macvim')
+  set guifont=Osaka-Mono:h12
+elseif has('mac')
+  set guifont=Osaka－等幅:h12
+elseif has('xfontset')
+  " UNIX用 (xfontsetを使用)
+  set guifontset=a12,r12,k12
+endif
+
+"---------------------------------------------------------------------------
+" ウインドウに関する設定:
+"
+" ウインドウの幅
+set columns=200
+" ウインドウの高さ
+set lines=50
+" コマンドラインの高さ(GUI使用時)
+set cmdheight=2
+" 画面を黒地に白にする (次行の先頭の " を削除すれば有効になる)
+colorscheme desert " (GUI使用時)
+highlight SpecialKey guifg=seagreen
+
+highlight JpSpace guibg=seagreen
+match JpSpace /　/
+
+" 画面の透過
+set transparency=15
